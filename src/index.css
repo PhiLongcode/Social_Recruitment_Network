@@ -1,0 +1,124 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 262 14.3% 95.9%;
+    --secondary-foreground: 262 39.3% 11%;
+
+    --muted: 262 14.3% 95.9%;
+    --muted-foreground: 262 8.9% 46.1%;
+
+    --accent: 262 14.3% 95.9%;
+    --accent-foreground: 262 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 262 13% 91%;
+    --input: 262 13% 91%;
+    --ring: 262 71.4% 50%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 262 40% 80%;
+    --primary-foreground: 262 39.3% 11%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 262 60% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    @apply transition-colors duration-300 ease-in-out scroll-smooth overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  a, button {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-lg;
+  }
+  
+  .hover-float {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .button-glow {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-primary/20 before:translate-x-[-150%] before:skew-x-[-45deg] before:transition-transform hover:before:translate-x-[150%] before:duration-700;
+  }
+  
+  .blurred-bg {
+    @apply relative after:absolute after:inset-0 after:bg-gradient-to-r after:from-primary/10 after:to-background/40 after:backdrop-blur-[2px] after:z-[-1];
+  }
+  
+  .interactive-card {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400;
+  }
+  
+  .image-hover-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .image-hover-zoom img {
+    @apply transition-transform duration-700 hover:scale-110;
+  }
+
+  .magnetic-button {
+    @apply relative transition-transform duration-200 ease-out active:scale-95;
+  }
+}
